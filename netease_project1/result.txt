@@ -1,0 +1,128 @@
+ 
+Asset Name:  Assets/Res/Effect/UI/Textures/Radial_046_tex.TGA 
+ occured time: 4
+in Bundles: Bundle Name: travelwnd.prefab.assetbundleBundle Name: drawwordcamera.prefab.assetbundleBundle Name: pickcardtenresultwnd.prefab.assetbundleBundle Name: ballotfortunetwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Textures/vx_flower_03.png 
+ occured time: 3
+in Bundles: Bundle Name: travelwnd.prefab.assetbundleBundle Name: drawwordcamera.prefab.assetbundleBundle Name: pickcardtenresultwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Materials/particle_02.mat 
+ occured time: 3
+in Bundles: Bundle Name: travelwnd.prefab.assetbundleBundle Name: carddetailwnd.prefab.assetbundleBundle Name: ballotfortunetwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Textures/particle_04.png 
+ occured time: 3
+in Bundles: Bundle Name: travelwnd.prefab.assetbundleBundle Name: carddetailwnd.prefab.assetbundleBundle Name: ballotfortunetwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/UIWorkspace/YJNshImages/universal/title_huawen.png 
+ occured time: 2
+in Bundles: Bundle Name: pickcardwnd.prefab.assetbundleBundle Name: wndwithbg2.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UI/Texture/Card/Material/bishua1.mat 
+ occured time: 2
+in Bundles: Bundle Name: drawwordcamera.prefab.assetbundleBundle Name: drawwordcontainer.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Models/fangkuang.FBX 
+ occured time: 2
+in Bundles: Bundle Name: drawwordcamera.prefab.assetbundleBundle Name: pickcardtenresultwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UIAnimation/Texture/glow/Materials/glow_00165.mat 
+ occured time: 2
+in Bundles: Bundle Name: wndwithbg1.prefab.assetbundleBundle Name: storyeventwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Materials/kapian006.mat 
+ occured time: 2
+in Bundles: Bundle Name: travelwnd.prefab.assetbundleBundle Name: drawwordcamera.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UIAnimation/Texture/lizi/Yun1.tif 
+ occured time: 2
+in Bundles: Bundle Name: wndwithbg1.prefab.assetbundleBundle Name: storyeventwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Models/arc.FBX 
+ occured time: 2
+in Bundles: Bundle Name: carddetailwnd.prefab.assetbundleBundle Name: sharecardwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UIAnimation/Texture/glow/glow_00165.tga 
+ occured time: 2
+in Bundles: Bundle Name: wndwithbg1.prefab.assetbundleBundle Name: storyeventwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Materials/card_par.mat 
+ occured time: 2
+in Bundles: Bundle Name: carddetailwnd.prefab.assetbundleBundle Name: sharecardwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UIAnimation/Texture/glow/glow_00099.tga 
+ occured time: 2
+in Bundles: Bundle Name: wndwithbg1.prefab.assetbundleBundle Name: storyeventwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Textures/Login_TaoHua1.tga 
+ occured time: 2
+in Bundles: Bundle Name: loginwnd.prefab.assetbundleBundle Name: ballotfortunetwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UIAnimation/Texture/lizi/Materials/lizi_00015.mat 
+ occured time: 2
+in Bundles: Bundle Name: wndwithbg1.prefab.assetbundleBundle Name: storyeventwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Textures/yun_2.tga 
+ occured time: 2
+in Bundles: Bundle Name: travelwnd.prefab.assetbundleBundle Name: throughfemalewnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Textures/particle_01.png 
+ occured time: 2
+in Bundles: Bundle Name: carddetailwnd.prefab.assetbundleBundle Name: ballotfortunetwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Textures/glow_00119.png 
+ occured time: 2
+in Bundles: Bundle Name: carddetailwnd.prefab.assetbundleBundle Name: sharecardwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UIAnimation/Texture/lizi/Materials/Yun1.mat 
+ occured time: 2
+in Bundles: Bundle Name: wndwithbg1.prefab.assetbundleBundle Name: storyeventwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UI/Texture/Card/bishua1.png 
+ occured time: 2
+in Bundles: Bundle Name: drawwordcamera.prefab.assetbundleBundle Name: drawwordcontainer.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Textures/huaban02.png 
+ occured time: 2
+in Bundles: Bundle Name: yjpinchfacescoresharewnd.prefab.assetbundleBundle Name: chalouwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Materials/Login_TaoHua1.mat 
+ occured time: 2
+in Bundles: Bundle Name: loginwnd.prefab.assetbundleBundle Name: ballotfortunetwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Textures/Trail_002_tex.tga 
+ occured time: 2
+in Bundles: Bundle Name: pickcardtenresultwnd.prefab.assetbundleBundle Name: pickcardwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Models/yun2.FBX 
+ occured time: 2
+in Bundles: Bundle Name: travelwnd.prefab.assetbundleBundle Name: throughfemalewnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Materials/card_uv.mat 
+ occured time: 2
+in Bundles: Bundle Name: carddetailwnd.prefab.assetbundleBundle Name: sharecardwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Materials/kapian011.mat 
+ occured time: 2
+in Bundles: Bundle Name: travelwnd.prefab.assetbundleBundle Name: drawwordcamera.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UIAnimation/Texture/glow/Materials/glow_00099.mat 
+ occured time: 2
+in Bundles: Bundle Name: wndwithbg1.prefab.assetbundleBundle Name: storyeventwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UI/Texture/Card/Alpha/bishua1.png 
+ occured time: 2
+in Bundles: Bundle Name: drawwordcamera.prefab.assetbundleBundle Name: drawwordcontainer.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Materials/xiaorendiyun.mat 
+ occured time: 2
+in Bundles: Bundle Name: travelwnd.prefab.assetbundleBundle Name: throughfemalewnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/Effect/UI/Textures/uv_energy.png 
+ occured time: 2
+in Bundles: Bundle Name: carddetailwnd.prefab.assetbundleBundle Name: sharecardwnd.prefab.assetbundle
+ 
+Asset Name:  Assets/Res/UIAnimation/Texture/lizi/lizi_00015.tga 
+ occured time: 2
+in Bundles: Bundle Name: wndwithbg1.prefab.assetbundleBundle Name: storyeventwnd.prefab.assetbundle
