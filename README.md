@@ -12,3 +12,4 @@ Project 2 : Legal unity asset import checker<br>
 --------------------------
 Language: C#<br>  
 Checks if the artist is importing the assets with the correct name(UTF-8 without a whitespace)<br>
+----------------------------
