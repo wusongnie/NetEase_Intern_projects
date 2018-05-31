@@ -1,6 +1,4 @@
 # NetEase_Intern_projects
-Project in Netease
-==================
 Project 1 : Daily build Log Analyzing
 ---------------------------
 Language: LUA<br>  
