@@ -1,7 +1,11 @@
-print("Starting\n")
+--print("Starting\n")
 
 tableBundleName = {}
 tableAssetName = {}
+tableSuffixName = {}
+tableFileMemory= {}
+tableAssetMemory = {}
+
 
 --initializating all the variables and open the log to be read
 function initializer()
@@ -15,6 +19,16 @@ function initializer()
 	line = ""
 	nextLine = ""
 	bundleName = ""
+	tableAssetMemory["picture"] = {}
+	tableAssetMemory["font"] = {}
+	tableAssetMemory["shader"] = {}
+	tableAssetMemory["mat"] = {}
+	tableAssetMemory["mesh"] = {}
+	tableSuffixName["Picture"] = 0
+	tableSuffixName["Mat"] = 0
+    tableSuffixName["Shader"] = 0
+	tableSuffixName["Font"] = 0
+	tableSuffixName["Mesh"] = 0
 end
 
 	
@@ -31,7 +45,7 @@ end
 
 --process the block of log
 function process(line, bundleName)
-	index = -1
+	local index = -1
 	if (string.find(line, "%% Asset") ~= nil)
 	then
 		index = string.find(line, "% Asset")
@@ -50,12 +64,51 @@ function process(line, bundleName)
 			tableBundleName[assetName] = {}
 		end
 		
+		suffix = ""
+		mem = 0.0
+		for word in string.gmatch(line, "%.%l+") do suffix = string.lower(word) end
+		for num in string.gmatch(line,"%d+%.%d%s") do mem = tonumber(num) end
+		for check in string.gmatch(line,"%d%.%d%smb") do mem = mem * 1024 end
+		tableFileMemory[assetName] = mem
+		if(suffix == ".tga" or suffix == ".psd" or suffix == ".png") then 
+			tableAssetMemory["picture"][assetName] = mem 
+			tableSuffixName["Picture"]  = tableSuffixName["Picture"] + mem 
+		end
+		if(suffix == ".fbx" or suffix == ".asset") then 
+			tableAssetMemory["mesh"][assetName] = mem
+			tableSuffixName["Mesh"]  = tableSuffixName["Mesh"] + mem  
+		end
+		if(suffix == ".shader") then
+			tableAssetMemory["shader"][assetName] = mem
+			tableSuffixName["Shader"]  = tableSuffixName["Shader"] + mem  
+		end
+		if(suffix == ".mat") then 
+			tableAssetMemory["mat"][assetName] = mem
+			tableSuffixName["Mat"]  = tableSuffixName["Mat"] + mem  
+		end
+		if(suffix == ".tif") then
+			tableAssetMemory["font"][assetName] = mem
+			tableSuffixName["Font"]  = tableSuffixName["Font"] + mem  
+		end
+		
 		tableBundleName[assetName][tableAssetName[assetName]] = bundleName
 		--Count the occurence of each thing using a table
 	end
 end
 
---output the data with occurence more than one
+
+function getKeysSortedByValue(tbl, sortFunction)
+  local keys = {}
+  for key in pairs(tbl) do
+    table.insert(keys, key)
+  end
+
+table.sort(keys, function(a, b)
+    return sortFunction(tbl[a], tbl[b])
+  end)
+  return keys
+end
+
 initializer(line)
 
 while(line ~=  nil) do
@@ -79,17 +132,6 @@ while(line ~=  nil) do
 	end
 end
 
-function getKeysSortedByValue(tbl, sortFunction)
-  local keys = {}
-  for key in pairs(tbl) do
-    table.insert(keys, key)
-  end
-
-  table.sort(keys, function(a, b)
-    return sortFunction(tbl[a], tbl[b])
-  end)
-  return keys
-end
 
 count = 0
 
@@ -97,9 +139,8 @@ sorted_keys = getKeysSortedByValue(tableAssetName,function(a , b)
         return tostring(a) > tostring(b)
     end )
 
-output_file = io.open("result.txt", "w")
-
-for i,j in pairs(sorted_keys )do  
+output_file = io.open("repeated_resources.txt", "w")
+for i,j in pairs(sorted_keys)do  
 		key_in = j
 		value_in = tableAssetName[j]
 		if(value_in > 1 and string.find(key_in, ".cs") == nil and  string.find(key_in, ".lua") == nil  and  string.find(key_in,  "AssetBundle Object") == nil )
@@ -109,12 +150,37 @@ for i,j in pairs(sorted_keys )do
 			output_file:write(" \nAsset Name: "..key_in.." \n occured time: "..value_in.."\n".."in Bundles: ")
 			for k, v in pairs(tableBundleName[key_in]) do  
 				--print(v)
-				output_file:write(v)
+				output_file:write(v)--output the data with occurence more than one
 			end
 			output_file:write("\n")
+			output_file:write(tableFileMemory[key_in].." kb\n")
 		end
 end 
 
-io.close(file)
-print("\nTotal asset repeated: "..count.."\n")
-print("End of operation,result stored in result.txt\n")
+output_file = io.open("statistics_total.txt", "w")
+
+print("Statistics Report:\n")
+
+for i,j in pairs(tableSuffixName)do
+	print("  "..i..": "..j.."kb\n")
+end
+
+
+
+for i,j in pairs(tableAssetMemory)do
+	local intro = ""
+	if(i == "picture")  then intro = "picture (.tga .png .psd)" end
+	if(i == "shader")  then intro = "shader (.shader)" end
+	if(i == "mesh")  then intro = "mesh (.fbx .asset)" end
+	if(i == "font")  then intro = "font (.tif)" end
+	if(i == "mat")  then intro = "mat (.mat)" end
+	print(" \n------------Asset and suffix Name: (sorted by size)"..intro.."------------------File and path:\n")
+	sorted_keys = getKeysSortedByValue(j,function(a , b)
+        return a > b
+    end )
+	for k,v in pairs(sorted_keys) do
+		print(v.."\n"..j[v].."kb\n")
+	end
+end
+
+--print("End of operation, result stored!\n")
