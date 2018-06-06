@@ -19,11 +19,11 @@ function initializer()
 	line = ""
 	nextLine = ""
 	bundleName = ""
-	tableAssetMemory["picture"] = {}
-	tableAssetMemory["font"] = {}
-	tableAssetMemory["shader"] = {}
-	tableAssetMemory["mat"] = {}
-	tableAssetMemory["mesh"] = {}
+	tableAssetMemory["Picture"] = {}
+	tableAssetMemory["Font"] = {}
+	tableAssetMemory["Shader"] = {}
+	tableAssetMemory["Mat"] = {}
+	tableAssetMemory["Mesh"] = {}
 	tableSuffixName["Picture"] = 0
 	tableSuffixName["Mat"] = 0
     tableSuffixName["Shader"] = 0
@@ -71,23 +71,23 @@ function process(line, bundleName)
 		for check in string.gmatch(line,"%d%.%d%smb") do mem = mem * 1024 end
 		tableFileMemory[assetName] = mem
 		if(suffix == ".tga" or suffix == ".psd" or suffix == ".png") then 
-			tableAssetMemory["picture"][assetName] = mem 
+			tableAssetMemory["Picture"][assetName] = mem 
 			tableSuffixName["Picture"]  = tableSuffixName["Picture"] + mem 
 		end
 		if(suffix == ".fbx" or suffix == ".asset") then 
-			tableAssetMemory["mesh"][assetName] = mem
+			tableAssetMemory["Mesh"][assetName] = mem
 			tableSuffixName["Mesh"]  = tableSuffixName["Mesh"] + mem  
 		end
 		if(suffix == ".shader") then
-			tableAssetMemory["shader"][assetName] = mem
+			tableAssetMemory["Shader"][assetName] = mem
 			tableSuffixName["Shader"]  = tableSuffixName["Shader"] + mem  
 		end
 		if(suffix == ".mat") then 
-			tableAssetMemory["mat"][assetName] = mem
+			tableAssetMemory["Mat"][assetName] = mem
 			tableSuffixName["Mat"]  = tableSuffixName["Mat"] + mem  
 		end
 		if(suffix == ".tif") then
-			tableAssetMemory["font"][assetName] = mem
+			tableAssetMemory["Font"][assetName] = mem
 			tableSuffixName["Font"]  = tableSuffixName["Font"] + mem  
 		end
 		
@@ -159,27 +159,42 @@ end
 
 output_file = io.open("statistics_total.txt", "w")
 
-print("Statistics Report:\n")
 
+stats_report = ""
 for i,j in pairs(tableSuffixName)do
-	print("  "..i..": "..j.."kb\n")
+		size_new = j + 0.0
+		metric = "Kb"
+			if(j > 1024) then
+				size_new = j / 1024
+				metric = "Mb"
+		end	
+	stats_report = stats_report.." ( "..tostring(i).." "..string.format("%0.1f",size_new)..metric..") "
 end
 
+print("Category"..stats_report.."\tPath\tSize\t")
 
 
 for i,j in pairs(tableAssetMemory)do
 	local intro = ""
-	if(i == "picture")  then intro = "picture (.tga .png .psd)" end
-	if(i == "shader")  then intro = "shader (.shader)" end
-	if(i == "mesh")  then intro = "mesh (.fbx .asset)" end
-	if(i == "font")  then intro = "font (.tif)" end
-	if(i == "mat")  then intro = "mat (.mat)" end
-	print(" \n------------Asset and suffix Name: (sorted by size)"..intro.."------------------File and path:\n")
+	if(i == "Picture")  then intro = "Picture (.tga .png .psd)" end
+	if(i == "Shader")  then intro = "Shader (.Shader)" end
+	if(i == "Mesh")  then intro = "Mesh (.fbx .asset)" end
+	if(i == "Font")  then intro = "Font (.tif)" end
+	if(i == "Mat")  then intro = "Mat (.mat)" end
+	
+	--print(" \n------------Asset and suffix Name: (sorted by size)"..intro.."------------------File and path:\n")
 	sorted_keys = getKeysSortedByValue(j,function(a , b)
         return a > b
     end )
 	for k,v in pairs(sorted_keys) do
-		print(v.."\n"..j[v].."kb\n")
+		size_new = j[v] + 0.0
+		metric = "Kb"
+		if(j[v] > 1024) then
+			size_new = j[v] / 1024.0
+			metric = "Mb"
+		end
+		print(i.."\t"..v.."\t"..string.format("%0.1f",size_new).."\t"..metric)
+		--print(v.."\n"..j[v].."kb\n")
 	end
 end
 
