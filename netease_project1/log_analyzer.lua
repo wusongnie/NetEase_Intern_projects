@@ -159,19 +159,21 @@ end
 
 output_file = io.open("statistics_total.txt", "w")
 
-
+function KbToMb(num)
+	size_new = num
+	metric = "Kb"
+	if(num > 1024) then
+		size_new = num / 1024
+		metric = "Mb"
+	end
+	return string.format("%0.1f",size_new)..metric
+end
 stats_report = ""
 for i,j in pairs(tableSuffixName)do
-		size_new = j + 0.0
-		metric = "Kb"
-			if(j > 1024) then
-				size_new = j / 1024
-				metric = "Mb"
-		end	
-	stats_report = stats_report.." ( "..tostring(i).." "..string.format("%0.1f",size_new)..metric..") "
+	stats_report = stats_report.."( "..tostring(i).." "..KbToMb(j)..") "
 end
-
-print("Category"..stats_report.."\tPath\tSize\t")
+print(stats_report)
+print("Category\tPath\tSize\t")
 
 
 for i,j in pairs(tableAssetMemory)do
@@ -187,13 +189,7 @@ for i,j in pairs(tableAssetMemory)do
         return a > b
     end )
 	for k,v in pairs(sorted_keys) do
-		size_new = j[v] + 0.0
-		metric = "Kb"
-		if(j[v] > 1024) then
-			size_new = j[v] / 1024.0
-			metric = "Mb"
-		end
-		print(i.."\t"..v.."\t"..string.format("%0.1f",size_new).."\t"..metric)
+		print(i.."\t"..v.."\t"..KbToMb(j[v])..'\t')
 		--print(v.."\n"..j[v].."kb\n")
 	end
 end
