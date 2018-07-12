@@ -11,7 +11,7 @@ Project 2 : Legal unity asset import checker<br>
 Language: C#<br>  
 Checks if the artist is importing the assets with the correct name(UTF-8 without a whitespace)<br>
 ----------------------------
-Project 4 : Item selling<br>
+Project 4 : 游戏内道具兑换功能<br>
 --------------------------
 Language: C#<br>  
 1、将奇物分为普通和功能奇物，功能奇物即时空碎片、神秘妆匣等道具，不可出售，普通奇物可以出售。出售可获得铜钱，用于购买其它功能所需资源。<br>
